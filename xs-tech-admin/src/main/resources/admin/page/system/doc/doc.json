@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Web文档",
+    "uri": "/doc/web"
+  },
+  {
+    "name": "Server文档",
+    "uri": "/doc/server"
+  },
+  {
+    "name": "接口文档",
+    "uri": "/doc/api"
+  }
+]

@@ -1,0 +1,29 @@
+{
+  "name": "菜单管理",
+  "uri": "/system/menu/mgr",
+  "httpApi": [
+    {
+      "method": "GET",
+      "uri": "/sys/menu/list/all"
+    },
+    {
+      "method": "GET",
+      "uri": "/sys/page/list/all/root"
+    },
+    {
+      "method": "PUT",
+      "uri": "/sys/menu/add"
+    },
+    {
+      "method": "POST",
+      "uri": "/sys/menu/modify/id"
+    },
+    {
+      "method": "POST",
+      "uri": "/sys/menu/delete/details"
+    }
+  ]
+}
+
+
+

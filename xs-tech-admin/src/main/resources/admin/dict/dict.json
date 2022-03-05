@@ -1,0 +1,90 @@
+[
+  {
+    "code": "sex",
+    "structureType": "list",
+    "name": "性别",
+    "valueType": "int",
+    "valueList": [
+      {
+        "value": 1,
+        "name": "男",
+        "sort": 10
+      },
+      {
+        "value": 2,
+        "name": "女",
+        "sort": 20
+      },
+      {
+        "value": 3,
+        "name": "未知",
+        "sort": 30
+      }
+    ]
+  },
+  {
+    "code": "accountStatus",
+    "structureType": "list",
+    "name": "账户状态",
+    "valueType": "int",
+    "valueList": [
+      {
+        "value": 1,
+        "name": "正常",
+        "sort": 10
+      },
+      {
+        "value": 2,
+        "name": "禁用",
+        "sort": 20
+      }
+    ]
+  },
+  {
+    "code": "httpMethod",
+    "structureType": "list",
+    "name": "Http请求方式",
+    "valueType": "int",
+    "valueList": [
+      {
+        "value": 1,
+        "name": "GET",
+        "sort": 10
+      },
+      {
+        "value": 3,
+        "name": "POST",
+        "sort": 30
+      },
+      {
+        "value": 4,
+        "name": "PUT",
+        "sort": 40
+      },
+      {
+        "value": 5,
+        "name": "DELETE",
+        "sort": 50
+      }
+    ]
+  },
+  {
+    "code": "roleStatus",
+    "structureType": "list",
+    "name": "角色状态",
+    "valueType": "int",
+    "valueList": [
+      {
+        "value": 1,
+        "name": "启用",
+        "sort": 10
+      },
+      {
+        "value": 2,
+        "name": "禁用",
+        "sort": 20
+      }
+    ]
+  }
+]
+

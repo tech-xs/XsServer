@@ -1,0 +1,24 @@
+{
+  "name": "角色管理",
+  "uri": "/system/role/mgr",
+  "httpApi": [
+    {
+      "method": "GET",
+      "uri": "/sys/role/list/page"
+    },
+    {
+      "method": "PUT",
+      "uri": "/sys/role/add"
+    },
+    {
+      "method": "POST",
+      "uri": "/sys/role/delete/details"
+    },
+    {
+      "method": "POST",
+      "uri": "/sys/role/modify/id"
+    }
+  ]
+}
+
+

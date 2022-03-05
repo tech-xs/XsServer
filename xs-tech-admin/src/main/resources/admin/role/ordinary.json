@@ -1,0 +1,6 @@
+{
+  "code": "ordinary",
+  "name": "普通用户",
+  "status": "enable",
+  "remark": "用户注册后的默认角色"
+}

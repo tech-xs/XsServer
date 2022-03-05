@@ -1,0 +1,125 @@
+server:
+  port: 10180
+spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    default-property-inclusion: non_null
+
+  datasource:
+    #    p6spy sql分析工具,可以在日子中打印完整sql,不建议在生产中使用,会有一定的性能问题
+    #    driver-class-name: com.p6spy.engine.spy.P6SpyDriver
+    #    url: jdbc:p6spy:mysql://127.0.0.1:3306/dbname?useUnicode=true&autoReconnect=true&characterEncoding=utf-8&serverTimezone=GMT%2B8&nullCatalogMeansCurrent=true&useSSL=false
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/dbname?useUnicode=true&autoReconnect=true&characterEncoding=utf-8&serverTimezone=GMT%2B8&nullCatalogMeansCurrent=true&useSSL=false
+    username: root
+    password: "123456"
+
+  rabbitmq:
+    virtual-host: /
+    listener:
+      simple:
+        acknowledge-mode: manual
+    producer: #生产者
+      send-message-timeout: 10000
+      group: producer-group
+  application:
+    name: xs-tech
+
+storage:
+  type: minio
+  oss:
+    bucket: bucketName
+    endpoint: endpoint
+    accessKey: ak
+    secretKey: sk
+  minio:
+    endpoint: http://127.0.0.1:9000
+    accessKey: ak
+    secretKey: sk
+    bucketName: bucketName
+
+notice:
+  email:
+    type: aliyun
+    aliyun:
+      host: smtp.x-s.tech
+      user-name: xs@x-s.tech
+      password: xxxxxx
+  sms:
+    type: aliyun
+
+auth:
+  cors:
+    type: origin # origin | all
+    origin: https://x-s.tech
+  password:
+    salt: ""
+
+mybatis-plus:
+  mapper-locations: classpath*:mybatis/**/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    use-actual-param-name: true
+  delete-plus:
+    ignore: generator_table,generator_column # 配置删除时不需要备份的表
+  type-enums-package: tech.xs.*;
+
+flowable:
+  async-executor-activate: false
+  database-schema-update: true
+  process-definition-location-prefix: classpath*:/workflow/
+
+project:
+  name: 'XsTech'
+
+logging:
+  config: classpath:log-config/logback.xml
+
+logback:
+  path: ./logs/${spring.application.name}
+  maxHistory: 30
+  level: INFO
+
+generator:
+  enabled: false
+  author: leanin
+  out-path: d:\generator\xstech
+  db-type: mysql
+  template-encoding: UTF-8
+  base-root-package: com.leanin.intelligence
+  root-package: ${generator.base-root-package}.voice
+  java-entity:
+    template-path: generator/JavaEntity.ftl
+    package: ${generator.root-package}.entity
+    out-path: ${generator.out-path}\java\entity\
+    extends-class-name: BaseEntity
+    extends-class-package: ${generator.base-root-package}.framework.base
+  java-dao:
+    template-path: generator/JavaDao.ftl
+    out-path: ${generator.out-path}\java\dao\
+    package: ${generator.root-package}.dao
+  java-service:
+    package: ${generator.root-package}.service
+    out-path: ${generator.out-path}\java\service\
+    template-path: generator/JavaService.ftl
+    extends-class-name: BaseVoiceService
+  java-service-impl:
+    out-path: ${generator.out-path}\java\service\impl\
+    template-path: generator/JavaServiceImpl.ftl
+    package: ${generator.root-package}.service.impl
+    extends-class-name: BaseVoiceServiceImpl
+  java-controller:
+    out-path: ${generator.out-path}\java\controller\
+    template-path: generator/JavaController.ftl
+    package: ${generator.root-package}.controller
+    extends-class-name: BaseVoiceController
+  vue-service:
+    out-path: ${generator.out-path}\vue\service\
+    template-path: generator/VueService.ftl
+  vue-add-modal:
+    out-path: ${generator.out-path}\vue\AddModal\
+    template-path: generator/VueAddModal.ftl
+  vue-manage:
+    out-path: ${generator.out-path}\vue\mgr\
+    template-path: generator/VueMgr.ftl

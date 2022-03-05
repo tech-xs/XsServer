@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>tech.xs</groupId>
+        <artifactId>xs-tech</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <artifactId>xs-tech-admin</artifactId>
+
+    <description>admin模块</description>
+
+    <dependencies>
+        <!-- 核心框架 -->
+        <dependency>
+            <groupId>tech.xs</groupId>
+            <artifactId>xs-tech-framework</artifactId>
+        </dependency>
+
+        <!-- 系统模块 -->
+        <dependency>
+            <groupId>tech.xs</groupId>
+            <artifactId>xs-tech-system</artifactId>
+        </dependency>
+
+        <!-- 授权模块 -->
+        <dependency>
+            <groupId>tech.xs</groupId>
+            <artifactId>xs-tech-auth</artifactId>
+        </dependency>
+
+        <!-- 文档模块 -->
+        <dependency>
+            <groupId>tech.xs</groupId>
+            <artifactId>xs-tech-doc</artifactId>
+        </dependency>
+
+        <!-- 代码生成模块 -->
+        <dependency>
+            <groupId>tech.xs</groupId>
+            <artifactId>xs-tech-generator</artifactId>
+        </dependency>
+
+    </dependencies>
+
+</project>

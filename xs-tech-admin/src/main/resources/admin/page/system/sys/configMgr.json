@@ -1,0 +1,27 @@
+{
+  "name": "系统设置",
+  "uri": "/system/config/mgr",
+  "httpApi": [
+    {
+      "method": "POST",
+      "uri": "/sys/config/modify/web/name"
+    },
+    {
+      "method": "POST",
+      "uri": "/sys/config/modify/icon"
+    },
+    {
+      "method": "POST",
+      "uri": "/sys/config/modify/mail"
+    },
+    {
+      "method": "GET",
+      "uri": "/sys/config/mail"
+    },
+    {
+      "method": "POST",
+      "uri": "/sys/notice/mail/test"
+    }
+  ]
+}
+

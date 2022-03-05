@@ -1,0 +1,74 @@
+[
+  {
+    "name": "系统管理",
+    "sort": 10,
+    "icon": "fas fa-tools",
+    "code": "systemMgr",
+    "childList": [
+      {
+        "name": "用户管理",
+        "code": "userMgr",
+        "icon": "fas fa-user-friends",
+        "sort": 10,
+        "pageUri": "/system/user/mgr"
+      },
+      {
+        "name": "角色管理",
+        "code": "roleMgr",
+        "icon": "fas fa-user-tag",
+        "sort": 20,
+        "pageUri": "/system/role/mgr"
+      },
+      {
+        "name": "菜单管理",
+        "code": "menuMgr",
+        "icon": "fas fa-bars",
+        "sort": 30,
+        "pageUri": "/system/menu/mgr"
+      },
+      {
+        "name": "页面管理",
+        "code": "pageMgr",
+        "icon": "fas fa-pager",
+        "sort": 40,
+        "pageUri": "/system/page/mgr"
+      },
+      {
+        "name": "系统设置",
+        "code": "systemSetting",
+        "sort": 50,
+        "icon": "fas fa-cog",
+        "pageUri": "/system/config/mgr"
+      }
+    ]
+  },
+  {
+    "name": "文档管理",
+    "sort": 20,
+    "icon": "fas fa-book",
+    "code": "docMgr",
+    "childList": [
+      {
+        "name": "Web文档",
+        "code": "docWeb",
+        "sort": 10,
+        "icon": "fab fa-chrome",
+        "pageUri": "/doc/web"
+      },
+      {
+        "name": "Server文档",
+        "code": "docServer",
+        "sort": 20,
+        "icon": "fas fa-server",
+        "pageUri": "/doc/server"
+      },
+      {
+        "name": "接口文档",
+        "code": "docApi",
+        "sort": 30,
+        "icon": "fab fa-battle-net",
+        "pageUri": "/doc/api"
+      }
+    ]
+  }
+]

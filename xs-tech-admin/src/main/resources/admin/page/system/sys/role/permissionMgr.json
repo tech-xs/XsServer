@@ -1,0 +1,35 @@
+{
+  "name": "角色权限管理",
+  "uri": "/system/role/permission/mgr",
+  "fatherUri": "/system/role/mgr",
+  "httpApi": [
+    {
+      "method": "GET",
+      "uri": "/sys/role/id"
+    },
+    {
+      "method": "GET",
+      "uri": "/sys/page/list/all"
+    },
+    {
+      "method": "GET",
+      "uri": "/sys/page/permission/list/all"
+    },
+    {
+      "method": "GET",
+      "uri": "/sys/menu/list/all"
+    },
+    {
+      "method": "GET",
+      "uri": "/sys/role/menu/list/all"
+    },
+    {
+      "method": "GET",
+      "uri": "/sys/role/menu/page/list/all"
+    },
+    {
+      "method": "GET",
+      "uri": "/sys/role/menu/page/permission/list/all"
+    }
+  ]
+}

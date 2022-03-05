@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions
+        xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+        xmlns:flowable="http://flowable.org/bpmn"
+        targetNamespace="oa">
+
+    <process id="exampleApproval" name="XXX审批">
+        <startEvent id="startApproval" name="提交审批"/>
+        <!--[sequenceFlow]节点相当于审批流中的箭头,将上一个节点和下一个节点关联起来-->
+        <sequenceFlow sourceRef="startApproval" targetRef="fatherApproval"/>
+        <!--
+            [userTask]用户任务,审批流中的一个节点
+            办理方式分为: [签收模式办理,直接办理]
+            1. 直接办理
+                assignee: 直接指派给某人办理
+        -->
+        <!--上级审批-->
+        <userTask id="fatherApproval" name="上级审批"/>
+        <sequenceFlow sourceRef="fatherApproval" targetRef="multiApproval"/>
+
+        <!--多人审批一个节点-->
+        <userTask id="multiApproval" name="多人审批">
+            <multiInstanceLoopCharacteristics isSequential="false" flowable:collection="assigneeList"
+                                              flowable:elementVariable="assignee">
+            </multiInstanceLoopCharacteristics>
+        </userTask>
+        <sequenceFlow sourceRef="multiApproval" targetRef="businessApproval"/>
+
+        <!--业务审批-->
+        <userTask id="businessApproval" name="业务审批"/>
+        <sequenceFlow sourceRef="businessApproval" targetRef="financeApproval"/>
+
+        <!--财务审批-->
+        <userTask id="financeApproval" name="财务审批"/>
+        <sequenceFlow sourceRef="financeApproval" targetRef="endApproval"/>
+
+        <endEvent id="endApproval"/>
+    </process>
+
+</definitions>

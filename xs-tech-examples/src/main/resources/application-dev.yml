@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    # 生产环境中不建议使用p6spy,会影响性能
+    # nullCatalogMeansCurrent 获取数据库中的表列表时,查询当前库中的,而不是所有数据库中的表
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/xs_tech?useUnicode=true&autoReconnect=true&characterEncoding=utf-8&serverTimezone=GMT%2B8&nullCatalogMeansCurrent=true&useSSL=false
+    username: root
+    password: "xxxxxx"
+
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    database: 1
+    password: xxxxx

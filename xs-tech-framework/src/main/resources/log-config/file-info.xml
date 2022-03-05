@@ -1,0 +1,15 @@
+<!--日志输出到文件[INFO]-->
+<appender name="FILE_INFO" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <encoder charset="utf-8">
+        <pattern>${LOG_PATTERN}</pattern>
+    </encoder>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+        <fileNamePattern>${LOG_PATH}/%d{yyyy-MM-dd}/${PROJECT_NAME}-info-%d.log</fileNamePattern>
+        <maxHistory>${LOG_MAX_HISTORY}</maxHistory>
+    </rollingPolicy>
+    <filter class="ch.qos.logback.classic.filter.LevelFilter">
+        <level>INFO</level>
+        <onMatch>ACCEPT</onMatch>
+        <onMismatch>DENY</onMismatch>
+    </filter>
+</appender>

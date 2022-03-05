@@ -1,0 +1,55 @@
+{
+  "name": "页面权限管理",
+  "uri": "/system/page/permission/mgr",
+  "fatherUri": "/system/page/mgr",
+  "httpApi": [
+    {
+      "method": "GET",
+      "uri": "/sys/page/permission/list/page"
+    },
+    {
+      "method": "GET",
+      "uri": "/sys/page/id"
+    },
+    {
+      "method": "PUT",
+      "uri": "/sys/page/permission/add"
+    },
+    {
+      "method": "POST",
+      "uri": "/sys/page/permission/delete/details"
+    },
+    {
+      "method": "POST",
+      "uri": "/sys/page/permission/modify/id"
+    },
+    {
+      "method": "GET",
+      "uri": "/sys/page/api/list/page"
+    },
+    {
+      "method": "GET",
+      "uri": "/sys/api/list/all"
+    },
+    {
+      "method": "GET",
+      "uri": "/sys/dict/details"
+    },
+    {
+      "method": "GET",
+      "uri": "/sys/page/permission/list/all"
+    },
+    {
+      "method": "PUT",
+      "uri": "/sys/page/api/add"
+    },
+    {
+      "method": "POST",
+      "uri": "/sys/page/api/delete/details"
+    },
+    {
+      "method": "POST",
+      "uri": "/sys/page/api/modify/id"
+    }
+  ]
+}

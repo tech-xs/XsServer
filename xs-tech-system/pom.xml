@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>tech.xs</groupId>
+        <artifactId>xs-tech</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <artifactId>xs-tech-system</artifactId>
+
+    <description>system系统模块</description>
+
+    <dependencies>
+
+        <!-- 框架 -->
+        <dependency>
+            <groupId>tech.xs</groupId>
+            <artifactId>xs-tech-framework</artifactId>
+        </dependency>
+
+        <!-- 阿里云dns -->
+        <dependency>
+            <groupId>com.aliyun</groupId>
+            <artifactId>aliyun-java-sdk-alidns</artifactId>
+            <version>2.0.10</version>
+        </dependency>
+
+    </dependencies>
+
+</project>

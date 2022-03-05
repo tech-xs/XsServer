@@ -1,0 +1,95 @@
+<configuration debug="false" scan="true" scanPeriod="60 seconds">
+
+    <!--项目名-->
+    <springProperty scope="context" name="PROJECT_NAME" source="spring.application.name" defaultValue=""/>
+    <!--日志路径-->
+    <springProperty scope="context" name="LOG_PATH" source="logback.path" defaultValue="~/logs/"/>
+    <!--日志输出级别-->
+    <springProperty scope="context" name="LOG_LEVEL" source="logback.level" defaultValue="INFO"/>
+    <!--日志最大保留天数-->
+    <springProperty scope="context" name="LOG_MAX_HISTORY" source="logback.maxHistory" defaultValue="30"/>
+    <!--日志输出格式-->
+    <property name="LOG_PATTERN"
+              value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] [requestId:%X{requestId}] [tokenId:%X{tokenId}] [%logger{36}] %m%n"/>
+
+    <include resource="log-config/console.xml"/>
+
+    <if condition='property("LOG_LEVEL").equals("TRACE")'>
+        <then>
+            <include resource="log-config/file-trace.xml"/>
+            <include resource="log-config/file-debug.xml"/>
+            <include resource="log-config/file-info.xml"/>
+            <include resource="log-config/file-warn.xml"/>
+            <include resource="log-config/file-error.xml"/>
+        </then>
+    </if>
+    <if condition='property("LOG_LEVEL").equals("DEBUG")'>
+        <then>
+            <include resource="log-config/file-debug.xml"/>
+            <include resource="log-config/file-info.xml"/>
+            <include resource="log-config/file-warn.xml"/>
+            <include resource="log-config/file-error.xml"/>
+        </then>
+    </if>
+    <if condition='property("LOG_LEVEL").equals("INFO")'>
+        <then>
+            <include resource="log-config/file-info.xml"/>
+            <include resource="log-config/file-warn.xml"/>
+            <include resource="log-config/file-error.xml"/>
+        </then>
+    </if>
+    <if condition='property("LOG_LEVEL").equals("WARN")'>
+        <then>
+            <include resource="log-config/file-warn.xml"/>
+            <include resource="log-config/file-error.xml"/>
+        </then>
+    </if>
+    <if condition='property("LOG_LEVEL").equals("ERROR")'>
+        <then>
+            <include resource="log-config/file-error.xml"/>
+        </then>
+    </if>
+
+    <logger name="com.ibatis" level="DEBUG"/>
+
+    <root level="${LOG_LEVEL}">
+        <appender-ref ref="CONSOLE"/>
+        <if condition='property("LOG_LEVEL").equals("TRACE")'>
+            <then>
+                <appender-ref ref="FILE_TRACE"/>
+                <appender-ref ref="FILE_DEBUG"/>
+                <appender-ref ref="FILE_INFO"/>
+                <appender-ref ref="FILE_WARN"/>
+                <appender-ref ref="FILE_ERROR"/>
+            </then>
+        </if>
+        <if condition='property("LOG_LEVEL").equals("DEBUG")'>
+            <then>
+                <appender-ref ref="FILE_DEBUG"/>
+                <appender-ref ref="FILE_INFO"/>
+                <appender-ref ref="FILE_WARN"/>
+                <appender-ref ref="FILE_ERROR"/>
+            </then>
+        </if>
+        <if condition='property("LOG_LEVEL").equals("INFO")'>
+            <then>
+                <appender-ref ref="FILE_INFO"/>
+                <appender-ref ref="FILE_WARN"/>
+                <appender-ref ref="FILE_ERROR"/>
+            </then>
+        </if>
+        <if condition='property("LOG_LEVEL").equals("WARN")'>
+            <then>
+                <appender-ref ref="FILE_WARN"/>
+                <appender-ref ref="FILE_ERROR"/>
+            </then>
+        </if>
+        <if condition='property("LOG_LEVEL").equals("ERROR")'>
+            <then>
+                <appender-ref ref="FILE_ERROR"/>
+            </then>
+        </if>
+    </root>
+
+</configuration>
+

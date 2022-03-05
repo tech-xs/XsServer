@@ -1,0 +1,27 @@
+{
+  "name": "页面管理",
+  "uri": "/system/page/mgr",
+  "httpApi": [
+    {
+      "method": "GET",
+      "uri": "/sys/page/list/page"
+    },
+    {
+      "method": "GET",
+      "uri": "/sys/page/list/all"
+    },
+    {
+      "method": "PUT",
+      "uri": "/sys/page/add"
+    },
+    {
+      "method": "POST",
+      "uri": "/sys/page/delete/details"
+    },
+    {
+      "method": "POST",
+      "uri": "/sys/page/modify/id"
+    }
+  ]
+}
+

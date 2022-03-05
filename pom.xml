@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>tech.xs</groupId>
+    <artifactId>xs-tech</artifactId>
+    <version>1.0.0</version>
+
+    <name>xs-tech</name>
+    <description>xs-techServer</description>
+
+    <properties>
+        <!--当前项目的版本号必须放到第一个,项目重命名模块会读取第一个节点进行重命名-->
+        <xs.tech.version>1.0.0</xs.tech.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>11</java.version>
+        <spring.boot.version>2.3.12.RELEASE</spring.boot.version>
+        <swagger.version>3.0.0</swagger.version>
+        <spring.boot.admin.version>2.3.0</spring.boot.admin.version>
+        <commons.lang3.version>3.11</commons.lang3.version>
+        <commons.io.version>2.7</commons.io.version>
+        <commons.collections4.version>4.4</commons.collections4.version>
+        <commons.fileupload.version>1.4</commons.fileupload.version>
+        <hutool.version>5.7.18</hutool.version>
+        <p6spy.version>3.9.1</p6spy.version>
+        <fastjson.version>1.2.75</fastjson.version>
+        <flowable.version>6.6.0</flowable.version>
+        <minio.version>8.2.1</minio.version>
+        <oss.version>3.13.0</oss.version>
+        <redisson.version>3.15.0</redisson.version>
+        <mysql.version>8.0.21</mysql.version>
+        <mybatis.plus.version>3.5.1</mybatis.plus.version>
+        <dom4j.version>1.6.1</dom4j.version>
+        <oshi.version>5.7.5</oshi.version>
+        <javacv.platform.version>1.5.5</javacv.platform.version>
+        <javamail.version>1.6.1</javamail.version>
+        <janino.version>3.1.1</janino.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- SpringBoot的依赖配置-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- 常用工具类 -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons.lang3.version}</version>
+            </dependency>
+
+            <!-- 集合常用工具类 -->
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons.io.version}</version>
+            </dependency>
+
+            <!-- logback中支持条件判断 -->
+            <dependency>
+                <groupId>org.codehaus.janino</groupId>
+                <artifactId>janino</artifactId>
+                <version>${janino.version}</version>
+            </dependency>
+
+            <!-- minio文件服务器客户端 -->
+            <dependency>
+                <groupId>io.minio</groupId>
+                <artifactId>minio</artifactId>
+                <version>${minio.version}</version>
+            </dependency>
+
+            <!-- 阿里云OSS -->
+            <dependency>
+                <groupId>com.aliyun.oss</groupId>
+                <artifactId>aliyun-sdk-oss</artifactId>
+                <version>${oss.version}</version>
+            </dependency>
+            <!-- oss 需要的支持库 start-->
+            <dependency>
+                <groupId>javax.xml.bind</groupId>
+                <artifactId>jaxb-api</artifactId>
+                <version>2.3.1</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.activation</groupId>
+                <artifactId>activation</artifactId>
+                <version>1.1.1</version>
+            </dependency>
+            <!-- no more than 2.3.3-->
+            <dependency>
+                <groupId>org.glassfish.jaxb</groupId>
+                <artifactId>jaxb-runtime</artifactId>
+                <version>2.3.3</version>
+            </dependency>
+            <!-- oss 需要的支持库 end-->
+
+            <dependency>
+                <groupId>dom4j</groupId>
+                <artifactId>dom4j</artifactId>
+                <version>${dom4j.version}</version>
+            </dependency>
+
+            <!-- 通用collections工具类 -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-collections4</artifactId>
+                <version>${commons.collections4.version}</version>
+            </dependency>
+
+            <!-- 文件上传依赖库 -->
+            <dependency>
+                <groupId>commons-fileupload</groupId>
+                <artifactId>commons-fileupload</artifactId>
+                <version>${commons.fileupload.version}</version>
+            </dependency>
+
+            <!-- SpringBootAdmin服务端 -->
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-starter-server</artifactId>
+                <version>${spring.boot.admin.version}</version>
+            </dependency>
+
+            <!-- SpringBootAdmin客户端 -->
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-starter-client</artifactId>
+                <version>${spring.boot.admin.version}</version>
+            </dependency>
+
+            <!-- 工作流 -->
+            <dependency>
+                <groupId>org.flowable</groupId>
+                <artifactId>flowable-spring-boot-starter</artifactId>
+                <version>${flowable.version}</version>
+            </dependency>
+
+            <!-- Mybatis Plus -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis.plus.version}</version>
+            </dependency>
+
+            <!-- Redis库 -->
+            <dependency>
+                <groupId>org.redisson</groupId>
+                <artifactId>redisson-spring-boot-starter</artifactId>
+                <version>${redisson.version}</version>
+            </dependency>
+
+            <!-- SQL分析工具 -->
+            <dependency>
+                <groupId>p6spy</groupId>
+                <artifactId>p6spy</artifactId>
+                <version>${p6spy.version}</version>
+            </dependency>
+
+            <!-- hutool 工具类 -->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+
+            <!-- oshi 系统信息工具库 -->
+            <dependency>
+                <groupId>com.github.oshi</groupId>
+                <artifactId>oshi-core</artifactId>
+                <version>${oshi.version}</version>
+            </dependency>
+
+            <!-- 多媒体工具库-->
+            <dependency>
+                <groupId>org.bytedeco</groupId>
+                <artifactId>javacv-platform</artifactId>
+                <version>${javacv.platform.version}</version>
+            </dependency>
+
+            <!-- 阿里JSON库 -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+
+            <!-- 邮件发送 -->
+            <dependency>
+                <groupId>com.sun.mail</groupId>
+                <artifactId>javax.mail</artifactId>
+                <version>${javamail.version}</version>
+            </dependency>
+
+            <!-- Swagger3 -->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-boot-starter</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
+
+            <!-- MySql 驱动包 -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+
+            <!-- 核心模块-->
+            <dependency>
+                <groupId>tech.xs</groupId>
+                <artifactId>xs-tech-framework</artifactId>
+                <version>${xs.tech.version}</version>
+            </dependency>
+
+            <!-- 系统模块-->
+            <dependency>
+                <groupId>tech.xs</groupId>
+                <artifactId>xs-tech-system</artifactId>
+                <version>${xs.tech.version}</version>
+            </dependency>
+
+            <!-- oauth模块 -->
+            <dependency>
+                <groupId>tech.xs</groupId>
+                <artifactId>xs-tech-auth</artifactId>
+                <version>${xs.tech.version}</version>
+            </dependency>
+
+            <!-- doc模块 -->
+            <dependency>
+                <groupId>tech.xs</groupId>
+                <artifactId>xs-tech-doc</artifactId>
+                <version>${xs.tech.version}</version>
+            </dependency>
+
+            <!-- 代码生成模块-->
+            <dependency>
+                <groupId>tech.xs</groupId>
+                <artifactId>xs-tech-generator</artifactId>
+                <version>${xs.tech.version}</version>
+            </dependency>
+
+            <!-- 工作流模块-->
+            <dependency>
+                <groupId>tech.xs</groupId>
+                <artifactId>xs-tech-workflow</artifactId>
+                <version>${xs.tech.version}</version>
+            </dependency>
+
+            <!-- 通用工具-->
+            <dependency>
+                <groupId>tech.xs</groupId>
+                <artifactId>xs-tech-common</artifactId>
+                <version>${xs.tech.version}</version>
+            </dependency>
+
+            <!-- 项目重命名模块 -->
+            <dependency>
+                <groupId>tech.xs</groupId>
+                <artifactId>xs-tech-rename</artifactId>
+                <version>${xs.tech.version}</version>
+            </dependency>
+
+            <!-- 监控系统客户端模块-->
+            <dependency>
+                <groupId>tech.xs</groupId>
+                <artifactId>xs-tech-monitor-client</artifactId>
+                <version>${xs.tech.version}</version>
+            </dependency>
+
+            <!-- 监控系统服务端模块-->
+            <dependency>
+                <groupId>tech.xs</groupId>
+                <artifactId>xs-tech-monitor-server</artifactId>
+                <version>${xs.tech.version}</version>
+            </dependency>
+
+            <!-- 继承框架模块后的统一模块 -->
+            <dependency>
+                <groupId>tech.xs</groupId>
+                <artifactId>xs-tech-admin</artifactId>
+                <version>${xs.tech.version}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+    <modules>
+        <module>xs-tech-common</module>
+        <module>xs-tech-framework</module>
+        <module>xs-tech-system</module>
+        <module>xs-tech-auth</module>
+        <module>xs-tech-generator</module>
+        <module>xs-tech-workflow</module>
+        <module>xs-tech-admin</module>
+        <module>xs-tech-examples</module>
+        <module>xs-tech-monitor-client</module>
+        <module>xs-tech-monitor-server</module>
+        <module>xs-tech-doc</module>
+    </modules>
+    <packaging>pom</packaging>
+
+    <dependencies>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                    <skip>true</skip>
+                    <compilerArgs>
+                        <arg>-parameters</arg>
+                    </compilerArgs>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <repositories>
+        <repository>
+            <id>public</id>
+            <name>aliyun nexus</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+        <repository>
+            <id>central</id>
+            <name>maven</name>
+            <url>http://repo1.maven.org/maven2</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>public</id>
+            <name>aliyun nexus</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+            <id>central</id>
+            <name>maven</name>
+            <url>http://repo1.maven.org/maven2</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+        <!--xjar的存储库-->
+        <pluginRepository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </pluginRepository>
+    </pluginRepositories>
+
+</project>

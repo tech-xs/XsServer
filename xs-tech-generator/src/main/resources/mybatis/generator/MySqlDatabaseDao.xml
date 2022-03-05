@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"><mapper namespace="tech.xs.generator.dao.MySqlDatabaseDao"><resultMap id="GeneratorTableResultMap" type="tech.xs.generator.domain.entity.GeneratorTable"><result column="TABLE_NAME" property="name"/><result column="TABLE_COMMENT" property="remark"/></resultMap><resultMap id="GeneratorColumnResultMap" type="tech.xs.generator.domain.entity.GeneratorColumn"><result column="COLUMN_NAME" property="name"/><result column="DATA_TYPE" property="fieldType"/><result column="CHARACTER_MAXIMUM_LENGTH" property="fieldLength"/><result column="COLUMN_COMMENT" property="fieldRemark"/></resultMap><select id="listGeneratorTable" resultMap="GeneratorTableResultMap">
+        SELECT
+        TABLE_NAME,
+        TABLE_COMMENT
+        FROM
+        information_schema.`TABLES`
+        <where>
+            TABLE_SCHEMA = #{schemaName};
+        </where>
+    </select><select id="listGeneratorColumn" resultMap="GeneratorColumnResultMap">
+        SELECT
+        COLUMN_NAME,
+        DATA_TYPE,
+        CHARACTER_MAXIMUM_LENGTH,
+        COLUMN_COMMENT
+        FROM
+        information_schema.`COLUMNS`
+        <where>
+            TABLE_SCHEMA = #{schemaName}
+            AND
+            TABLE_NAME = #{tableName};
+        </where>
+    </select></mapper>

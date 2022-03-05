@@ -1,0 +1,21 @@
+{
+  "code": "admin",
+  "name": "管理员",
+  "status": "enable",
+  "remark": "系统管理员使用的角色,业务人员或其他使用者",
+  "menuTree": [
+    {
+      "code": "systemMgr",
+      "childList": [
+        {
+          "code": "userMgr",
+          "permissionList": [
+            "add",
+            "delete",
+            "modifyPassword"
+          ]
+        }
+      ]
+    }
+  ]
+}

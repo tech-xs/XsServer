@@ -1,0 +1,35 @@
+server:
+  port: 7788
+spring:
+  application:
+    name: 'xs-tech-examples'
+  profiles:
+    active: dev-local
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    default-property-inclusion: non_null
+  datasource:
+    hikari:
+      schema: classpath*:sql/mysql/ddl.sql
+auth:
+  password:
+    salt: "cc762b82d6254bbb9a1df9b3c83c9034"
+
+mybatis-plus:
+  mapper-locations: classpath*:mybatis/**/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    use-actual-param-name: true
+  type-enums-package: tech.xs.*;
+
+project:
+  name: 小萨技术
+
+logging:
+  config: classpath:log-config/logback.xml
+
+logback:
+  path: ./logs/${spring.application.name}
+  maxHistory: 30
+  level: INFO
